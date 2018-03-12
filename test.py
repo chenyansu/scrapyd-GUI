@@ -33,37 +33,20 @@ class TestToolManger(unittest.TestCase):
         """ 数据库测试 """
         t = ScrapydToolsLocal()
 
-        result = t.connect_sqlite(table="SERVER", action="insert", name="LOCAL", address="http://127.0.0.1:6800/")
+        result = t.connect_sqlite( action="insert", name="LOCAL", address="http://127.0.0.1:6800/")
         print("插入‘local’ " + str(result) + " 数据类型： " + str(type(result)))
         self.assertIn(result, [None, "EXIST"])
 
-        result = t.connect_sqlite(table="SERVER", action="get", name="LOCAL")
+        result = t.connect_sqlite( action="get", name="LOCAL")
         print("获取‘LOCAL’ " + str(result) + " 数据类型： " + str(type(result)))
         self.assertIsInstance(result, str)
 
-        result = t.connect_sqlite(table="SERVER", action="get_all")
+        result = t.connect_sqlite(action="get_all")
         print("获取所有 " + str(result)+ " 数据类型： " + str(type(result)))
         self.assertIsInstance(result, list)
 
-        result =  t.connect_sqlite(table="SERVER", action="del", name="LOCAL2")
+        result =  t.connect_sqlite(action="del", name="LOCAL2")
         print("删除‘local2’ " + str(result) + " 数据类型： " + str(type(result)))
-        self.assertEqual(result, None)
-
-        result = t.connect_sqlite(table="PROJECT", action="insert", name="tutorial", 
-                                    address="/home/chenyansu/code/scrapy_test/tutorial")
-        print("插入‘tutorial’ " + str(result) + " 数据类型： " + str(type(result)))
-        self.assertIn(result, [None, "EXIST"])
-
-        result = t.connect_sqlite(table="PROJECT", action="get", name="tutorial")
-        print("获取‘tutorial’ " + str(result) + " 数据类型： " + str(type(result)))
-        self.assertIsInstance(result, str)
-
-        result = t.connect_sqlite(table="PROJECT", action="get_all")
-        print("获取所有 " + str(result)+ " 数据类型： " + str(type(result)))
-        self.assertIsInstance(result, list)
-
-        result =  t.connect_sqlite(table="PROJECT", action="del", name="tutorial")
-        print("删除‘tutorial’ " + str(result) + " 数据类型： " + str(type(result)))
         self.assertEqual(result, None)
         
 
