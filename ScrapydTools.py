@@ -82,7 +82,6 @@ class ScrapydTools(object):
         """
         # 数据库自检
         if os.path.exists("tool.db") == False:
-            # 开启sqlite3链接
             conn = sqlite3.connect('tool.db')
             cursor = conn.cursor()
             # 如果表不存在则创建表
