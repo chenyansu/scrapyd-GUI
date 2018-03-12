@@ -5,7 +5,7 @@ import json
 import sqlite3
 import os
 
-class ScrapydToolsNet(object):
+class ScrapydTools(object):
     """ 向服务器发送请求
     """
 
@@ -75,19 +75,14 @@ class ScrapydToolsNet(object):
         print(r.text)
         return eval(r.text)
 
-
-class ScrapydToolsLocal(object):
-    
-    """通过本地文件/数据库配置服务器
-    """
-    
-    ############### 数据库版本###################
-    
-    def connect_sqlite(self, action="get_all", name=None, address=None):
-        """ 将创建并使用两张表，一个project, 一个server，对此增删改查"""
-
+    def server_manager(self, action="server_list", name=None, address=None):
+        """ 
+        将利用sqlite创建并使用server表，对此增删改查
+        提供 server_select，server_list，server_add， server_del 方法
+        """
         # 数据库自检
         if os.path.exists("tool.db") == False:
+            # 开启sqlite3链接
             conn = sqlite3.connect('tool.db')
             cursor = conn.cursor()
             # 如果表不存在则创建表
@@ -104,19 +99,19 @@ class ScrapydToolsLocal(object):
             cursor = conn.cursor()
 
         # 通过action设定获取键值，获取所有值，插入键值，删除功能
-        if action == "get":
+        if action == "server_select":
             cursor.execute("SELECT ADDRESS FROM SERVER WHERE NAME=='%s';" %name)
             result = cursor.fetchone()[0] #<class 'str'>
-        elif action == "get_all":
-            cursor.execute("SELECT ADDRESS FROM SERVER")
+        elif action == "server_list":
+            cursor.execute("SELECT NAME FROM SERVER")
             result = [x[0] for x in cursor.fetchall()] #<class 'list'>
-        elif action == "insert":
+        elif action == "server_add":
             try:
                 cursor.execute("INSERT INTO SERVER (NAME, ADDRESS) VALUES ('%s', '%s');" %(name, address))
                 result = None #<class 'NoneType'>
             except sqlite3.IntegrityError:
                 result = "EXIST" #<class 'str'>
-        elif action == "del":
+        elif action == "server_del":
             cursor.execute("DELETE from SERVER WHERE NAME=='%s';" %name)
             result = None #<class 'NoneType'>
         else:

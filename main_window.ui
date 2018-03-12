@@ -17,7 +17,7 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>0</y>
       <width>571</width>
       <height>531</height>
@@ -102,7 +102,7 @@
        <string>项目名称</string>
       </property>
      </widget>
-     <widget class="QTextBrowser" name="showmessage">
+     <widget class="QTextBrowser" name="show_message_textBrowser">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -216,9 +216,9 @@
      <widget class="QComboBox" name="server_select_comboBox">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>100</x>
         <y>250</y>
-        <width>411</width>
+        <width>311</width>
         <height>27</height>
        </rect>
       </property>
@@ -247,6 +247,19 @@
       </property>
       <property name="text">
        <string>刷新</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="server_del_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>416</x>
+        <y>250</y>
+        <width>121</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>删除当前服务器</string>
       </property>
      </widget>
     </widget>
