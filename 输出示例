@@ -1,0 +1,36 @@
+{"node_name": "cys-tp-ubnt", "pending": 0, "running": 0, "finished": 1, "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "projects": ["tutorial"], "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "spiders": ["author", "quotes", "quotes_follow", "quotes_output", "quotes_tag"], "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "versions": ["1520788750"], "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "pending": [], "running": [], "finished": [{"end_time": "2018-03-12 01:14:41.485900", "id": "a2a4771a254f11e8bd326c8814690104", "spider": "author", "start_time": "2018-03-12 01:14:23.300876"}], "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "jobid": "84ef9862255411e8bd326c8814690104", "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "status": "ok"}
+
+
+
+____________________________________ no all______________________
+
+
+{"node_name": "cys-tp-ubnt", "pending": 0, "running": 0, "finished": 2, "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "projects": [], "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "message": "Scrapy 1.5.0 - no active project\n\nUnknown command: list\n\nUse \"scrapy\" to see available commands\n", "status": "error"}
+
+{"node_name": "cys-tp-ubnt", "versions": [], "status": "ok"}
+
+{"node_name": "cys-tp-ubnt", "message": "'tutorial'", "status": "error"}
+
+{"node_name": "cys-tp-ubnt", "message": "Scrapy 1.5.0 - no active project\n\nUnknown command: list\n\nUse \"scrapy\" to see available commands\n", "status": "error"}
+
+{"node_name": "cys-tp-ubnt", "message": "[Errno 2] No such file or directory: 'eggs/tutorial/1520788750.egg'", "status": "error"}
+
+{"node_name": "cys-tp-ubnt", "message": "[Errno 2] No such file or directory: 'eggs/tutorial'", "status": "error"}
