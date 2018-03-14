@@ -8,4 +8,4 @@
 
 （为了防止资源浪费，需要手动点击刷新按钮查看更改。）
 
-https://github.com/chenyansu/scrapyd-GUI/a.png
+https://github.com/chenyansu/scrapyd-GUI/blob/master/a.png
