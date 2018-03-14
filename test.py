@@ -1,7 +1,14 @@
+#!/usr/bin/env python3
 #coding:utf-8
 
 import unittest
 from ScrapydTools import ScrapydTools
+
+"""
+单元测试待补全
+"""
+
+__author__ == "chenyansu"
 
 class TestToolManger(unittest.TestCase):
     
@@ -16,7 +23,6 @@ class TestToolManger(unittest.TestCase):
         t = ScrapydTools()
         result = t.get_project_list()
         print(result)
-
 
     def test_server_manager(self):
         """ 数据库测试 """
@@ -34,7 +40,7 @@ class TestToolManger(unittest.TestCase):
         print("获取所有 " + str(result)+ " 数据类型： " + str(type(result)))
         self.assertIsInstance(result, list)
 
-        result =  t.server_manager(action="server_del", name="LOCAL2")
+        result =  t.server_manager(action="server_del", name="LOCAL3")
         print("删除‘local2’ " + str(result) + " 数据类型： " + str(type(result)))
         self.assertEqual(result, None)
         

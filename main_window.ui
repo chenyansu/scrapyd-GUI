@@ -30,11 +30,11 @@
      <attribute name="title">
       <string>scrapyd</string>
      </attribute>
-     <widget class="QComboBox" name="project_version_comboBox">
+     <widget class="QComboBox" name="running_spider_comboBox">
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>360</y>
+        <y>390</y>
         <width>411</width>
         <height>27</height>
        </rect>
@@ -50,38 +50,12 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="get_spider_status_pushButton">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>290</y>
-        <width>141</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>详细运行状态</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="update_project_pushButton">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>430</y>
-        <width>141</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>更新项目</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="del_project_pushButton">
       <property name="geometry">
        <rect>
-        <x>410</x>
+        <x>460</x>
         <y>430</y>
-        <width>131</width>
+        <width>81</width>
         <height>26</height>
        </rect>
       </property>
@@ -116,36 +90,10 @@
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>390</y>
+        <y>360</y>
         <width>411</width>
         <height>27</height>
        </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="project_list_pushButton">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>290</y>
-        <width>131</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>项目清单</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="spider_list_pushButton">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
-        <y>290</y>
-        <width>131</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>爬虫清单</string>
       </property>
      </widget>
      <widget class="QPushButton" name="start_spider_pushButton">
@@ -153,7 +101,7 @@
        <rect>
         <x>10</x>
         <y>430</y>
-        <width>131</width>
+        <width>91</width>
         <height>26</height>
        </rect>
       </property>
@@ -165,46 +113,20 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>360</y>
+        <y>390</y>
         <width>67</width>
         <height>17</height>
        </rect>
       </property>
       <property name="text">
-       <string>项目版本</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="server_status_pushButton">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>290</y>
-        <width>131</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>服务器运行状态</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="del_spider_pushButton">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>430</y>
-        <width>131</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>删除项目版本</string>
+       <string>运行中</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>390</y>
+        <y>360</y>
         <width>67</width>
         <height>17</height>
        </rect>
@@ -262,12 +184,146 @@
        <string>删除当前服务器</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="kill_spider_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>430</y>
+        <width>91</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>杀死爬虫</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>等待中</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="pending_lcdNumber">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>290</y>
+        <width>64</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>290</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>运行中</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="running_lcdNumber">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>290</y>
+        <width>64</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>290</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>已完成</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="finished_lcdNumber">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>290</y>
+        <width>64</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="s_r_spider_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>430</y>
+        <width>121</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>暂停/恢复爬虫</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>460</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>460</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>186</x>
+        <y>460</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>only for local</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="settings">
      <attribute name="title">
       <string>设置</string>
      </attribute>
-     <widget class="QLineEdit" name="scrapyd_server_name_lineEdit">
+     <widget class="QLineEdit" name="server_name_lineEdit">
       <property name="geometry">
        <rect>
         <x>120</x>
@@ -280,7 +336,7 @@
        <string>name</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="scrapyd_server_address_lineEdit">
+     <widget class="QLineEdit" name="server_address_lineEdit">
       <property name="geometry">
        <rect>
         <x>250</x>
@@ -293,7 +349,7 @@
        <string>address</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="scrapyd_server_add_pushButton">
+     <widget class="QPushButton" name="server_add_pushButton">
       <property name="geometry">
        <rect>
         <x>440</x>
@@ -332,7 +388,7 @@
        <string>scrapyd项目</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="scrapyd_project_name_lineEdit">
+     <widget class="QLineEdit" name="project_name_lineEdit">
       <property name="geometry">
        <rect>
         <x>120</x>
@@ -345,7 +401,7 @@
        <string>name</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="scrapyd_project_address_lineEdit">
+     <widget class="QLineEdit" name="project_address_lineEdit">
       <property name="geometry">
        <rect>
         <x>250</x>
@@ -358,7 +414,7 @@
        <string>path</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="scrapyd_server_add_pushButton_2">
+     <widget class="QPushButton" name="project_add_pushButton">
       <property name="geometry">
        <rect>
         <x>440</x>

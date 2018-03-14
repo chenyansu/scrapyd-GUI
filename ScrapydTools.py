@@ -1,52 +1,51 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import requests
 import json 
 import sqlite3
 import os
+import shutil
+
+__author__ == "chenyansu"
 
 class ScrapydTools(object):
-    """ 向服务器发送请求
+    """ 后端：Scrapyd API 的封装调用
+        日后修改方向：函数打散，不使用类继承。
     """
 
     def __init__(self, baseUrl ='http://127.0.0.1:6800/'):
         self.baseUrl = baseUrl
-        self.daemUrl = self.baseUrl + 'daemonstatus.json'
-        self.listproUrl = self.baseUrl + 'listprojects.json'
-        self.listspdUrl = self.baseUrl + 'listspiders.json?project=%s'
-        self.listspdvUrl= self.baseUrl + 'listversions.json?project=%s'
-        self.listjobUrl = self.baseUrl + 'listjobs.json?project=%s'
-        self.delspdvUrl = self.baseUrl + 'delversion.json'
 
     def get_server_status(self):
         """ 获取服务器状态 """
-        r = requests.get(self.daemUrl)
+        r = requests.get(self.baseUrl + 'daemonstatus.json')
         print(r.text)
         return eval(r.text)
 
     def get_project_list(self):
         """ 获取项目列表 """
-        r = requests.get(self.listproUrl)
+        r = requests.get(self.baseUrl + 'listprojects.json')
         print(r.text)
         return eval(r.text)
 
     def get_project_spider(self,project):
         """ 获取某项目的所有爬虫 """
-        listspdUrl = self.listspdUrl % project
+        listspdUrl = self.baseUrl + 'listspiders.json?project=%s' % project
         r = requests.get(listspdUrl)
         print(r.text)
         return eval(r.text)
 
-    def get_project_spider_version(self, project):
+    def get_project_version(self, project):
         """ 获取某项目所有版本(重复提交项目会增加版本) """
-        listspdvUrl=self.listspdvUrl % project
+        listspdvUrl=self.baseUrl + 'listversions.json?project=%s' % project
         r = requests.get(listspdvUrl)
         print(r.text)
         return eval(r.text)
 
     def get_job_list(self, project):
         """ 获取所有爬虫(各种状态) """
-        listjobUrl=self.listjobUrl % project
+        listjobUrl=self.baseUrl + 'listjobs.json?project=%s' % project
         r=requests.get(listjobUrl)
         print(r.text)
         return eval(r.text)
@@ -56,6 +55,14 @@ class ScrapydTools(object):
         schUrl = self.baseUrl + 'schedule.json'
         dictdata ={ "project":project,"spider":spider}
         r= requests.post(schUrl, data= dictdata)
+        print(r.text)
+        return eval(r.text)
+
+    def stop_spider(self, project, jobid):
+        """ 根据jobid停止爬虫 """
+        cancelUrl = self.baseUrl + 'cancel.json'
+        dictdata = {"project":project ,"job":jobid}
+        r = requests.post(cancelUrl, data=dictdata)
         print(r.text)
         return eval(r.text)
 
@@ -122,6 +129,17 @@ class ScrapydTools(object):
         conn.close()
 
         return result
+
+    def project_add(self, project_name, project_address):
+        if os.path.exists(project_address+"scrapyd-deploy") == False:
+            try:
+                shutil.copy("scrapyd-deploy", project_address)
+            except:
+                print("没有复制权限")
+        old_address = os.getcwd()
+        os.chdir(project_address)
+        os.system("scrapyd-deploy -p %s" %project_name)
+        os.chdir(old_address)
 
 
 if __name__ == "__main__":
