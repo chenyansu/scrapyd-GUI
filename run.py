@@ -7,7 +7,7 @@ import sys
 import os
 import requests
 
-__author__ == "chenyansu"
+__author__ = "chenyansu"
 
 class Run(ScrapydTools):
     """

@@ -8,7 +8,7 @@ from ScrapydTools import ScrapydTools
 单元测试待补全
 """
 
-__author__ == "chenyansu"
+__author__ = "chenyansu"
 
 class TestToolManger(unittest.TestCase):
     

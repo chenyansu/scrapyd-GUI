@@ -7,7 +7,7 @@ import sqlite3
 import os
 import shutil
 
-__author__ == "chenyansu"
+__author__ = "chenyansu"
 
 class ScrapydTools(object):
     """ 后端：Scrapyd API 的封装调用
