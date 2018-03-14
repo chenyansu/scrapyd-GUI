@@ -7,3 +7,5 @@
 依赖：pyqt5 和 requests
 
 （为了防止资源浪费，需要手动点击刷新按钮查看更改。）
+
+https://github.com/chenyansu/scrapyd-GUI/a.png
