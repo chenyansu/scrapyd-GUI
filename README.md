@@ -3,7 +3,11 @@
 
 支持服务器管理，项目管理，爬虫管理。
 
+请运行run.py使用
+
 
 依赖：pyqt5 和 requests
 
 （为了防止资源浪费，需要手动点击刷新按钮查看更改。）
+
+![截图](https://github.com/chenyansu/scrapyd-GUI/blob/master/a.png)
