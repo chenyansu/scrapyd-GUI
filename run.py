@@ -161,8 +161,10 @@ class Run(ScrapydTools):
         self.ui.project_name_comboBox.clear()
         self.server_set()
         server_name = self.ui.server_select_comboBox.currentText()
-        self.ui.project_name_comboBox.addItems(self.project_dict[server_name])
-        # self.ui.project_name_comboBox.addItems(self.get_project_list()["projects"])
+        try:
+            self.ui.project_name_comboBox.addItems(self.project_dict[server_name])
+        except:
+            pass
         self.ui.project_name_comboBox.activated[str].connect(self.project_on_activated)
 
     def show_spider_in_combobox(self):
@@ -170,7 +172,10 @@ class Run(ScrapydTools):
         self.ui.spider_name_comboBox.clear()
         server = self.ui.server_select_comboBox.currentText()
         project = self.ui.project_name_comboBox.currentText()
-        self.ui.spider_name_comboBox.addItems(self.project_spider_dict[server][project])
+        try:
+            self.ui.spider_name_comboBox.addItems(self.project_spider_dict[server][project])
+        except:
+            pass
         # self.ui.spider_name_comboBox.addItems(self.get_project_spider(project)["spiders"])
 
     def show_running_in_combobox(self):

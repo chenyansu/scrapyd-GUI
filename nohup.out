@@ -1,0 +1,169 @@
+{'LOCAL': 'http://localhost:6800/'}
+['LOCAL']
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] 拒绝连接
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.5/http/client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.5/http/client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.5/http/client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.5/http/client.py", line 877, in send
+    self.connect()
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f480ca50b70>: Failed to establish a new connection: [Errno 111] 拒绝连接
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=6800): Max retries exceeded with url: /listprojects.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f480ca50b70>: Failed to establish a new connection: [Errno 111] 拒绝连接',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "run.py", line 273, in <module>
+    a = Run()
+  File "run.py", line 27, in __init__
+    self.Ui_register()
+  File "run.py", line 45, in Ui_register
+    self.refresh_button_func()
+  File "run.py", line 230, in refresh_button_func
+    self.fetch_project()
+  File "run.py", line 94, in fetch_project
+    self.project_dict[server_name] = eval(requests.get(address + 'listprojects.json').text)["projects"]
+  File "/usr/local/lib/python3.5/dist-packages/requests/api.py", line 72, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=6800): Max retries exceeded with url: /listprojects.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f480ca50b70>: Failed to establish a new connection: [Errno 111] 拒绝连接',))
+2018-03-15T21:31:57+0800 [-] Loading /usr/local/lib/python3.5/dist-packages/scrapyd/txapp.py...
+2018-03-15T21:31:57+0800 [-] Scrapyd web console available at http://127.0.0.1:6800/
+2018-03-15T21:31:57+0800 [-] Loaded.
+2018-03-15T21:31:57+0800 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 17.9.0 (/usr/bin/python3 3.5.2) starting up.
+2018-03-15T21:31:57+0800 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+2018-03-15T21:31:57+0800 [-] Site starting on 6800
+2018-03-15T21:31:57+0800 [twisted.web.server.Site#info] Starting factory <twisted.web.server.Site object at 0x7f759d70e898>
+2018-03-15T21:31:57+0800 [Launcher] Scrapyd 1.2.0 started: max_proc=16, runner='scrapyd.runner'
+2018-03-15T21:32:00+0800 [-] Received SIGINT, shutting down.
+2018-03-15T21:32:00+0800 [-] (TCP Port 6800 Closed)
+2018-03-15T21:32:00+0800 [twisted.web.server.Site#info] Stopping factory <twisted.web.server.Site object at 0x7f759d70e898>
+2018-03-15T21:32:00+0800 [-] Main loop terminated.
+2018-03-15T21:32:00+0800 [twisted.scripts._twistd_unix.UnixAppLogger#info] Server Shut Down.
+{'LOCAL': 'http://localhost:6800/'}
+['LOCAL']
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] 拒绝连接
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.5/http/client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.5/http/client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.5/http/client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.5/http/client.py", line 877, in send
+    self.connect()
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fad01307ba8>: Failed to establish a new connection: [Errno 111] 拒绝连接
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=6800): Max retries exceeded with url: /listprojects.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fad01307ba8>: Failed to establish a new connection: [Errno 111] 拒绝连接',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "run.py", line 273, in <module>
+    a = Run()
+  File "run.py", line 27, in __init__
+    self.Ui_register()
+  File "run.py", line 45, in Ui_register
+    self.refresh_button_func()
+  File "run.py", line 230, in refresh_button_func
+    self.fetch_project()
+  File "run.py", line 94, in fetch_project
+    self.project_dict[server_name] = eval(requests.get(address + 'listprojects.json').text)["projects"]
+  File "/usr/local/lib/python3.5/dist-packages/requests/api.py", line 72, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=6800): Max retries exceeded with url: /listprojects.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fad01307ba8>: Failed to establish a new connection: [Errno 111] 拒绝连接',))
+{'LOCAL': 'http://localhost:6800/'}
+['LOCAL']
+{'LOCAL': []}
+{'LOCAL': {}}
+Traceback (most recent call last):
+  File "run.py", line 273, in <module>
+    a = Run()
+  File "run.py", line 27, in __init__
+    self.Ui_register()
+  File "run.py", line 45, in Ui_register
+    self.refresh_button_func()
+  File "run.py", line 233, in refresh_button_func
+    self.combobox_register()
+  File "run.py", line 71, in combobox_register
+    self.show_spider_in_combobox()
+  File "run.py", line 173, in show_spider_in_combobox
+    self.ui.spider_name_comboBox.addItems(self.project_spider_dict[server][project])
+KeyError: ''
