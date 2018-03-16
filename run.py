@@ -102,7 +102,10 @@ class Run(ScrapydTools):
             project_list = self.project_dict[server_name]
             self.project_spider_dict[server_name] = {}
             for project in project_list:
-                spider = eval(requests.get(address+'listspiders.json?project=%s' % project).text)["spiders"]
+                try:
+                    spider = eval(requests.get(address+'listspiders.json?project=%s' % project).text)["spiders"]
+                except:
+                    spider = None
                 self.project_spider_dict[server_name][project] = spider
         print(self.project_spider_dict)
         return self.project_spider_dict

@@ -1,0 +1,54 @@
+2018-03-16 18:27:54 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: scrapy_normal)
+2018-03-16 18:27:54 [scrapy.utils.log] INFO: Versions: lxml 3.5.0.0, libxml2 2.9.3, cssselect 1.0.1, parsel 1.4.0, w3lib 1.19.0, Twisted 17.9.0, Python 3.5.2 (default, Nov 23 2017, 16:37:01) - [GCC 5.4.0 20160609], pyOpenSSL 17.5.0 (OpenSSL 1.1.0g  2 Nov 2017), cryptography 2.1.4, Platform Linux-4.14.9-041409-generic-x86_64-with-Ubuntu-16.04-xenial
+2018-03-16 18:27:54 [scrapy.crawler] INFO: Overridden settings: {'COOKIES_ENABLED': False, 'NEWSPIDER_MODULE': 'scrapy_normal.spiders', 'DOWNLOAD_DELAY': 0.25, 'BOT_NAME': 'scrapy_normal', 'CONCURRENT_REQUESTS': 32, 'LOG_FILE': 'logs/scrapy_normal/quotes_follow/ae7c1698290411e8bd326c8814690104.log', 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'CONCURRENT_REQUESTS_PER_IP': 16, 'SPIDER_MODULES': ['scrapy_normal.spiders'], 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler'}
+2018-03-16 18:27:54 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2018-03-16 18:27:54 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy_normal.middlewares.ScrapyNormalDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy_splash.SplashCookiesMiddleware',
+ 'scrapy_splash.SplashMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy_normal.middlewares.UAmiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-03-16 18:27:54 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy_splash.SplashDeduplicateArgsMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy_normal.middlewares.ScrapyNormalSpiderMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-03-16 18:27:54 [twisted] CRITICAL: Unhandled error in Deferred:
+2018-03-16 18:27:54 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 80, in crawl
+    self.engine = self._create_engine()
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 105, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/engine.py", line 70, in __init__
+    self.scraper = Scraper(crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/scraper.py", line 71, in __init__
+    self.itemproc = itemproc_cls.from_crawler(crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/middleware.py", line 58, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/middleware.py", line 40, in from_settings
+    mw = mwcls()
+  File "/tmp/scrapy_normal-1521196066-y0h3y5sc.egg/scrapy_normal/pipelines.py", line 36, in __init__
+  File "/usr/local/lib/python3.5/dist-packages/pymongo/mongo_client.py", line 1177, in __getitem__
+    return database.Database(self, name)
+  File "/usr/local/lib/python3.5/dist-packages/pymongo/database.py", line 106, in __init__
+    "of %s" % (string_type.__name__,))
+TypeError: name must be an instance of str
